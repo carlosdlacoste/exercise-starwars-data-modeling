@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String, Date
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
@@ -13,9 +13,11 @@ class Usuario(Base):
     # Notice that each column is also a normal Python instance attribute.
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+    last_name = Column(String(250), nullable=False)
     email = Column(String(100), nullable=False)
     user_name = Column(String(50), nullable=False)
     password = Column(String(100), nullable=False)
+    subscription_date = Column(Date(), nullable=False)
 
 class Planeta(Base):
     __tablename__ = 'planeta'
